@@ -24,6 +24,7 @@ class TodoItem extends HTMLElement {
     super();
     const shadow = this.attachShadow({ mode: "open" });
     shadow.appendChild(template.content.cloneNode(true));
+    this.checkbox = shadow.querySelector("input");
   }
 
   static get observedAttributes() {
@@ -31,11 +32,13 @@ class TodoItem extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldVal, newVal) {
-    console.log({
-      name,
-      oldVal,
-      newVal,
-    });
+    if (name === "checked") {
+      this.updatedChecked(newVal);
+    }
+  }
+
+  updatedChecked(value) {
+    this.checkbox.checked = value;
   }
 }
 
