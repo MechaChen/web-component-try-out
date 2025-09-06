@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="index.css" />
     <style>
       h3 {
         color: red;
@@ -11,12 +12,8 @@
     </style>
   </head>
   <body>
-    <select>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-    </select>
     <script defer src="todo.js"></script>
+    <script defer src="expandableList.js"></script>
     <h3>Outside h3</h3>
     <todo-item checked="true">
       Todo 1
@@ -24,5 +21,10 @@
     </todo-item>
     <todo-item>Todo 2</todo-item>
     <todo-item>Todo 3</todo-item>
+    <ul is="expandable-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
   </body>
 </html>
