@@ -1,11 +1,15 @@
 const template = document.createElement("template");
 template.innerHTML = `
   <style>
-    h3 { color: green; }
+    label {
+      color: #099;
+      display: block;
+    }
   </style>
-  <h3>
+  <label>
+    <input type="checkbox" />
     <slot></slot>
-  </h3>
+  </label>
 `;
 class TodoItem extends HTMLElement {
   constructor() {
