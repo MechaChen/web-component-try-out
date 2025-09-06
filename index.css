@@ -8,4 +8,5 @@
   cursor: pointer;
   font-size: 16px;
   color: #333;
+  transition: transform 0.2s ease;
 }
