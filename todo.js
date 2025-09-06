@@ -31,6 +31,14 @@ class TodoItem extends HTMLElement {
     return ["checked"];
   }
 
+  connectedCallback() {
+    console.log("connected");
+  }
+
+  disconnectedCallback() {
+    console.log("disconnected");
+  }
+
   attributeChangedCallback(name, oldVal, newVal) {
     if (name === "checked") {
       this.updatedChecked(newVal);
@@ -46,10 +54,4 @@ customElements.define("todo-item", TodoItem);
 
 const todoItem = document.querySelector("todo-item");
 
-let checked = true;
-
-setInterval(() => {
-  console.log("checked", checked);
-  checked = !checked;
-  todoItem.setAttribute("checked", checked);
-}, 1000);
+todoItem.remove();
