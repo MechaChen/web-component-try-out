@@ -38,8 +38,18 @@ class TodoItem extends HTMLElement {
   }
 
   updatedChecked(value) {
-    this.checkbox.checked = value;
+    this.checkbox.checked = value !== null && value !== "false";
   }
 }
 
 customElements.define("todo-item", TodoItem);
+
+const todoItem = document.querySelector("todo-item");
+
+let checked = true;
+
+setInterval(() => {
+  console.log("checked", checked);
+  checked = !checked;
+  todoItem.setAttribute("checked", checked);
+}, 1000);
