@@ -25,6 +25,18 @@ class TodoItem extends HTMLElement {
     const shadow = this.attachShadow({ mode: "open" });
     shadow.appendChild(template.content.cloneNode(true));
   }
+
+  static get observedAttributes() {
+    return ["checked"];
+  }
+
+  attributeChangedCallback(name, oldVal, newVal) {
+    console.log({
+      name,
+      oldVal,
+      newVal,
+    });
+  }
 }
 
 customElements.define("todo-item", TodoItem);
